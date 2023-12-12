@@ -1,0 +1,43 @@
+<template>
+    <div>
+        <template if:true={showTable}>
+            <div class="datatable-container">
+                <lightning-card variant="Narrow">
+                    <div class="corner slds-theme_shade slds-border_bottom slds-var-p-around_small">
+                        <lightning-layout multiple-rows="true">
+                            <lightning-layout-item size="8">
+                                <div
+                                    class="slds-col slds-media slds-media_center slds-has-flexi-truncate">
+                                    <div class="slds-media__figure">
+                                        <lightning-icon icon-name="standard:calculated_insights" size="medium"></lightning-icon>
+                                    </div>
+
+                                    <div class="slds-media__body">
+                                        <h2 class="slds-card__header-title">
+                                            Flow Report ({recordCount})
+                                        </h2>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                            <lightning-layout-item size="4">
+                                <div class="slds-grid slds-float_right">
+                                    <div class="slds-col">
+                                        <lightning-input placeholder="Search" variant="label-hidden" title="search"
+                                            onchange={handleSearch}></lightning-input>
+                                    </div>
+                                </div>
+                            </lightning-layout-item>
+                        </lightning-layout>
+                    </div>
+
+                    <lightning-datatable key-field="name" data={relevantFormattedJson} columns={columns} hide-checkbox-column>
+                    </lightning-datatable>
+                </lightning-card>
+            </div>
+        </template>
+        <template if:false={showTable}>
+            <p>{message}</p>
+        </template>
+    </div>
+
+</template>

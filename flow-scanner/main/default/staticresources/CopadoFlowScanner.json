@@ -1,0 +1,93 @@
+{
+  "recordTypeMap": {},
+  "RecordSetBundles": [
+    {
+      "Records": [
+        {
+          "attributes": {
+            "type": "copado__ExtensionConfiguration__c",
+            "url": "/services/data/v59.0/sobjects/copado__ExtensionConfiguration__c/a0fHs00000QxIl5IAF"
+          },
+          "copado__AcceptanceCriteria__c": "{}",
+          "copado__Active__c": true,
+          "copado__ExtensionApplication__c": "Test",
+          "copado__ExtensionTool__c": "flow-scanner",
+          "copado__Status__c": "Inactive",
+          "copado__TestType__c": "Static Code Analysis",
+          "copado__copadoQuality__Requires_Sync__c": false,
+          "CurrencyIsoCode": "USD",
+          "Id": "a0fHs00000QxIl5IAF",
+          "LastReferencedDate": "2023-12-12T22:08:50.000+0000",
+          "LastViewedDate": "2023-12-12T22:08:50.000+0000",
+          "Name": "Flow Scanner"
+        }
+      ],
+      "ObjectType": "copado__ExtensionConfiguration__c"
+    },
+    {
+      "Records": [
+        {
+          "attributes": {
+            "type": "copado__Function__c",
+            "url": "/services/data/v59.0/sobjects/copado__Function__c/a0lHs00000DJfLdIAL"
+          },
+          "copado__API_Name__c": "RUN_FLOW_SCANNER",
+          "copado__Image_Name__c": "ubxxrh6cjl2pkhy5iaingoykadytnn-sfdx-scanner:v1.2",
+          "copado__Options__c": "[ ]",
+          "copado__Parameters__c": "[ {\n  \"name\" : \"git_json\",\n  \"defaultValue\" : \"{$Context.Repository.Credential}\"\n}, {\n  \"name\" : \"branchesAndFileIdJson\",\n  \"defaultValue\" : \"{$Context.Apex.copadoQuality.RetrieveBranchesAndFileIdForPmdScan}\"\n} ]",
+          "copado__Script__c": "#################### Install SFDX Lightning Flow Scanner #####################\necho y | sfdx plugins:install lightning-flow-scanner\nsfdx flow:scan -h\n\n########## Get Source and Destination Branch names and Checkout Repository #############\ncopado -p \"Reading parameters...\"\noriginBranch=$(jq -r '.originBranch' <<< $branchesAndFileIdJson)\nBRANCH=\"$originBranch\"\ndestinationBranch=$(jq -r '.destinationBranch' <<< $branchesAndFileIdJson)\n\necho \"param originBranch = $originBranch\"\necho \"param destinationBranch = $destinationBranch\"\n\ncopado -p \"Cloning repo...\"\ncopado-git-get $destinationBranch\ncopado-git-get $BRANCH\n\n########### Create delta packages for new, modified or deleted metadata  ############\ncopado -p \"Generating Diff between the Source and Destination branches...\"\nmkdir changed-sources\nsfdx sgd:source:delta --to \"HEAD\" --from \"origin/$destinationBranch\" --output changed-sources/ --generate-delta --source .\necho \"Here's the files that have been changes in this US\"\ncat changed-sources/package/package.xml \n\n################ Run SFDX Lightning Flow Scanner only on Changed Metadata  ###############\ncopado -p \"Running sfdx scanner...\"\nexitCode=0\nsfdx flow:scan --directory \"./changed-sources/\" --json > ./output.json || exitCode=$?\n\n############ Attach Results to the Function results record  ####################\ncopado -p \"Uploading results...\"\nif [ -f \"output.json\" ]; then\n    copado -u output.json\n    copado -p \"Writing to result\" -e \"There was an error running SFDX Flow Scan, please check logs for details.\"\nfi\n\necho \"Sfdx Flow scan completed. exit code: $exitCode\"\nexit $exitCode",
+          "copado__Type__c": "Custom",
+          "copado__Worker_Size__c": "S",
+          "CurrencyIsoCode": "USD",
+          "Id": "a0lHs00000DJfLdIAL",
+          "LastReferencedDate": "2023-12-12T23:13:49.000+0000",
+          "LastViewedDate": "2023-12-12T23:13:49.000+0000",
+          "Name": "Run Flow Scanner"
+        }
+      ],
+      "ObjectType": "copado__Function__c"
+    },
+    {
+      "Records": [
+        {
+          "attributes": {
+            "type": "copado__JobTemplate__c",
+            "url": "/services/data/v59.0/sobjects/copado__JobTemplate__c/a0uHs00000Z7N0aIAF"
+          },
+          "copado__ApiName__c": "Run_Flow_Scanner_1",
+          "copado__Type__c": "Custom",
+          "copado__Version__c": 1,
+          "CurrencyIsoCode": "USD",
+          "Id": "a0uHs00000Z7N0aIAF",
+          "LastReferencedDate": "2023-12-12T22:30:16.000+0000",
+          "LastViewedDate": "2023-12-12T22:30:16.000+0000",
+          "Name": "Run Flow Scanner"
+        }
+      ],
+      "ObjectType": "copado__JobTemplate__c"
+    },
+    {
+      "Records": [
+        {
+          "attributes": {
+            "type": "copado__JobStep__c",
+            "url": "/services/data/v59.0/sobjects/copado__JobStep__c/a0tHs00000NvYknIAF"
+          },
+          "copado__ApiName__c": "Run_Flow_Scanner_1_Run_Flow_Scanner_Function_1",
+          "copado__ConfigJson__c": "{\"functionName\":\"RUN_FLOW_SCANNER\",\"parameters\":[{\"name\":\"git_json\",\"value\":\"{$Context.Repository.Credential}\"},{\"name\":\"branchesAndFileIdJson\",\"value\":\"{$Context.Apex.copadoQuality.RetrieveBranchesAndFileIdForPmdScan}\"}]}",
+          "copado__CustomType__c": "Function",
+          "copado__IsSkipped__c": false,
+          "copado__JobTemplate__c": "a0uHs00000Z7N0aIAF",
+          "copado__Order__c": 1,
+          "copado__Result_Viewer_Component__c": "c:flowScannerResultTable",
+          "copado__Type__c": "Function",
+          "CurrencyIsoCode": "USD",
+          "Id": "a0tHs00000NvYknIAF",
+          "Name": "Run Flow Scanner Function"
+        }
+      ],
+      "ObjectType": "copado__JobStep__c"
+    }
+  ],
+  "blobsByUID": {}
+}
