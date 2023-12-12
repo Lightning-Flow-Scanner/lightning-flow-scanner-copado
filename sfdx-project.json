@@ -1,0 +1,12 @@
+{
+  "packageDirectories": [
+    {
+      "path": "flow-scanner",
+      "default": true
+    }
+  ],
+  "name": "lightning-flow-scanner",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "58.0"
+}
