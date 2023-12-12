@@ -9,7 +9,7 @@
       "versionDescription": "",
       "dependencies": [
         {
-          "package": "copadoDeployer@21.4"
+          "package": "copadoDeployer@21.14"
         },
         {
           "package": "copadoQIF@1.42"
@@ -23,7 +23,7 @@
   "sourceApiVersion": "58.0",
   "packageAliases": {
     "CopadoFlowScanner": "0Ho8Z000000KyqHSAS",
-    "copadoDeployer@21.4": "04t5p000001E97y",
+    "copadoDeployer@21.14": "04t5p000001E97y",
     "copadoQIF@1.42": "04tP700000002EjIAI"
   }
 }
