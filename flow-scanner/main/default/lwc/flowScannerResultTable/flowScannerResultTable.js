@@ -6,7 +6,7 @@ import VERSION_DATA_FIELD from '@salesforce/schema/ContentVersion.VersionData';
 import TITLE_FIELD from '@salesforce/schema/ContentDocumentLink.ContentDocument.Title';
 import LATEST_PUBLISHED_VERSION_FIELD from '@salesforce/schema/ContentDocumentLink.ContentDocument.LatestPublishedVersionId';
 
-import jsyamllib from "@salesforce/resourceUrl/jsyamllib";
+import jsyamllib from "@salesforce/resourceUrl/jsyamlliblfs";
 import { loadScript } from 'lightning/platformResourceLoader';
 
 export default class flowScannerResultTable extends LightningElement {

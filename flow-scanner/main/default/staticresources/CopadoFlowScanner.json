@@ -14,8 +14,6 @@
           "copado__ExtensionTool__c": "flow-scanner",
           "copado__Status__c": "Inactive",
           "copado__TestType__c": "Static Code Analysis",
-          "copado__copadoQuality__Requires_Sync__c": false,
-          "CurrencyIsoCode": "USD",
           "Id": "a0fHs00000QxIl5IAF",
           "LastReferencedDate": "2023-12-12T22:08:50.000+0000",
           "LastViewedDate": "2023-12-12T22:08:50.000+0000",
@@ -38,7 +36,6 @@
           "copado__Script__c": "#################### Install SFDX Lightning Flow Scanner #####################\necho y | sfdx plugins:install lightning-flow-scanner\nsfdx flow:scan -h\n\n########## Get Source and Destination Branch names and Checkout Repository #############\ncopado -p \"Reading parameters...\"\noriginBranch=$(jq -r '.originBranch' <<< $branchesAndFileIdJson)\nBRANCH=\"$originBranch\"\ndestinationBranch=$(jq -r '.destinationBranch' <<< $branchesAndFileIdJson)\n\necho \"param originBranch = $originBranch\"\necho \"param destinationBranch = $destinationBranch\"\n\ncopado -p \"Cloning repo...\"\ncopado-git-get $destinationBranch\ncopado-git-get $BRANCH\n\n########### Create delta packages for new, modified or deleted metadata  ############\ncopado -p \"Generating Diff between the Source and Destination branches...\"\nmkdir changed-sources\nsfdx sgd:source:delta --to \"HEAD\" --from \"origin/$destinationBranch\" --output changed-sources/ --generate-delta --source .\necho \"Here's the files that have been changes in this US\"\ncat changed-sources/package/package.xml \n\n################ Run SFDX Lightning Flow Scanner only on Changed Metadata  ###############\ncopado -p \"Running sfdx scanner...\"\nexitCode=0\nsfdx flow:scan --directory \"./changed-sources/\" --json > ./output.json || exitCode=$?\n\n############ Attach Results to the Function results record  ####################\ncopado -p \"Uploading results...\"\nif [ -f \"output.json\" ]; then\n    copado -u output.json\n    copado -p \"Writing to result\" -e \"There was an error running SFDX Flow Scan, please check logs for details.\"\nfi\n\necho \"Sfdx Flow scan completed. exit code: $exitCode\"\nexit $exitCode",
           "copado__Type__c": "Custom",
           "copado__Worker_Size__c": "S",
-          "CurrencyIsoCode": "USD",
           "Id": "a0lHs00000DJfLdIAL",
           "LastReferencedDate": "2023-12-12T23:13:49.000+0000",
           "LastViewedDate": "2023-12-12T23:13:49.000+0000",
@@ -57,7 +54,6 @@
           "copado__ApiName__c": "Run_Flow_Scanner_1",
           "copado__Type__c": "Custom",
           "copado__Version__c": 1,
-          "CurrencyIsoCode": "USD",
           "Id": "a0uHs00000Z7N0aIAF",
           "LastReferencedDate": "2023-12-12T22:30:16.000+0000",
           "LastViewedDate": "2023-12-12T22:30:16.000+0000",
@@ -81,7 +77,6 @@
           "copado__Order__c": 1,
           "copado__Result_Viewer_Component__c": "c:flowScannerResultTable",
           "copado__Type__c": "Function",
-          "CurrencyIsoCode": "USD",
           "Id": "a0tHs00000NvYknIAF",
           "Name": "Run Flow Scanner Function"
         }
