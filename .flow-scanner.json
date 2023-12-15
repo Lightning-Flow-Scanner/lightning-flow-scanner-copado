@@ -1,0 +1,40 @@
+{
+  "rules": {
+    "APIVersion": {
+      "severity": "warning"
+    },
+    "CopyAPIName": {
+      "severity": "note"
+    },
+    "DMLStatementInLoop": {
+      "severity": "note"
+    },
+    "DuplicateDMLOperation": {
+      "severity": "note"
+    },
+    "FlowDescription": {
+      "severity": "note"
+    },
+    "FlowName": {
+      "severity": "warning"
+    },
+    "HardcodedId": {
+      "severity": "warning"
+    },
+    "MissingFaultPath": {
+      "severity": "warning"
+    },
+    "MissingNullHandler": {
+      "severity": "warning"
+    },
+    "SOQLQueryInLoop": {
+      "severity": "warning"
+    },
+    "UnconnectedElement": {
+      "severity": "warning"
+    },
+    "UnusedVariable": {
+      "severity": "warning"
+    }
+  }
+}

@@ -8,7 +8,7 @@
       "default": true,
       "package": "CopadoFlowScanner",
       "versionName": "ver 0.1",
-      "versionNumber": "0.1.1.NEXT",
+      "versionNumber": "1.0.0.NEXT",
       "versionDescription": "",
       "dependencies": [
         {
@@ -28,7 +28,6 @@
     "CopadoFlowScanner": "0Ho8Z000000KyqHSAS",
     "copadoDeployer@21.4": "04t5p000001E97y",
     "copadoQIF@1.42": "04tP700000002EjIAI",
-    "CopadoFlowScanner@0.1.0-1": "04t8Z000000BoojQAC",
-    "CopadoFlowScanner@0.1.1-1": "04t8Z000000BoooQAC"
+    "CopadoFlowScanner@1.0.0-1": "04t8Z000000Bop3QAC"
   }
 }
