@@ -40,10 +40,10 @@ Here's the Rule Overview [courtesy, the original repo](https://github.com/Lightn
 ## Create The Functions and Job Templates
 Navigate to the “Copado Extensions” tab, select “CopadoFlowScanner” and press the button “Generate Extension Records”.
 
-![Generate Extension Records](./images/generate-extension-records.png)
+![Generate Extension Records](./assets/images/generate-extension-records.png)
 
 ## Configure Acceptance Criteria via a Function Parameter
- ![Function Parameter](./images/function-parameter.png)
+ ![Function Parameter](./assets/images/function-parameter.png)
 
 `fail_on` - This parameter can take one of three rule severity values - `error`, `note` or `warning`. The default value of it is `error`. This parameter decides when should the Quality Gate fail.
 
@@ -62,13 +62,13 @@ You can also configure `exceptions` for particular rules. [Read more details her
 ### Create the Quality Gate Rule
 Navigate to the Quality Gate Rules tab and create a new record as follows. Note that the Type field will be populated automatically upon save. The global value set Test Tool should have a value for `Flow Scanner` as part of this package. It can be created manually if necessary.
 
-![Configure Quality Gate](./images/create-quality-gate-rule.png)
+![Configure Quality Gate](./assets/images/create-quality-gate-rule.png)
 
 ### Create the Quality Gate Rule Condition
 Set the conditions so that it only applies to `Pipelines/Stages/Environments` with Platform = `SFDX`. This picklist value can be added manually if necessary.
 Once saved, press the button “Activate” on the Quality Gate Rule record.
 
-![Quality Gate Rule Condition](./images/quality-gate-rule-condition.png)
+![Quality Gate Rule Condition](./assets/images/quality-gate-rule-condition.png)
 
 **You are all set.**
 
@@ -82,21 +82,21 @@ Take a look at sample-test flows in the [test-data directory](./test-data/flows/
 
 Here are some screencaps of how the results look.
 ### Successful run with no violations and it's result
-![Successful Commit](./images/successful-commit.png)
-![No Violations](./images/no-violations.png)
+![Successful Commit](./assets/images/successful-commit.png)
+![No Violations](./assets/images/no-violations.png)
 
 ### Successful run with `warnings` and `note` type of violations and fail_on set to `error`
-![Success Note Warnings](./images/note-warning.png)
+![Success Note Warnings](./assets/images/note-warning.png)
 
 ### Run with Violations
-![Failed Commit](./images/failed-commit.png)
-![Violations Modal](./images/violations-modal.png)
+![Failed Commit](./assets/images/failed-commit.png)
+![Violations Modal](./assets/images/violations-modal.png)
 
 The Result record can be further opened to read the violations better, as well as wrap text and search to filter violations.
 
-![Result Record](./images/violations-result.png)
+![Result Record](./assets/images/violations-result.png)
 
-![Wrapped Text](./images/violations-wrapped-text.png)
+![Wrapped Text](./assets/images/violations-wrapped-text.png)
 
-![Search](./images/violations-search.png)
+![Search](./assets/images/violations-search.png)
 
