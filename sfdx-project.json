@@ -21,7 +21,7 @@
     }
   ],
   "name": "lightning-flow-scanner",
-  "namespace": "",
+  "namespace": "abhi_labs",
   "sfdcLoginUrl": "https://login.salesforce.com",
   "sourceApiVersion": "58.0",
   "packageAliases": {
