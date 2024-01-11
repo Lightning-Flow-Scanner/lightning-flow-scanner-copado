@@ -67,7 +67,7 @@ Navigate to the Quality Gate Rules tab and create a new record as follows. Note 
 ### Create the Quality Gate Rule Condition
 Set the conditions so that it only applies to `Pipelines/Stages/Environments` with Platform = `SFDX`. This picklist value can be added manually if necessary.
 Once saved, press the button “Activate” on the Quality Gate Rule record.
-
+To run Flow Scanner only when Flows are committed, add the Filter Logic as shown in the picture below.
 ![Quality Gate Rule Condition](./assets/images/quality-gate-rule-condition.png)
 
 **You are all set.**
