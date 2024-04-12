@@ -33,9 +33,9 @@ Here's the Rule Overview [courtesy, the original repo](https://github.com/Lightn
 
 ## Picklist Values
 
-* Create the Following Picklist values
-* Object: Extension Configuration, Field: Extension Tool, Value: `flow-scanner`
-* Picklist Value Set: Copado Test Tool, Value: `flow-scanner`
+Create the Following Picklist values
+* **Object: Extension Configuration** > Field: Extension Tool, Value: `flow-scanner`
+* **Picklist Value Set** > Copado Test Tool, Value: `flow-scanner`
 
 ## Create The Functions and Job Templates
 Navigate to the “Copado Extensions” tab, select “CopadoFlowScanner” and press the button “Generate Extension Records”.
