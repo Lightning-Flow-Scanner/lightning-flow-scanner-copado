@@ -29,7 +29,7 @@ Here's the Rule Overview [courtesy, the original repo](https://github.com/Lightn
 ## Pre-Requisites
 * Install Copado v21.14 or higher
 * Install Copado Quality Tools extension v1.42 or higher
-* Install the [latest version of Copado Flow Scanner](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t8Z000000Bop3QAC) from Copado's DevOps Exchange.
+* Install the [latest version of Copado Flow Scanner](https://success.copado.com/s/listing-detail?recordId=a54P7000003G3gBIAS) from Copado's DevOps Exchange by clicking the `Get It Now` button.
 
 ## Picklist Values
 
